@@ -27,12 +27,12 @@ public class StartTest {
     public void testKmh2mih() {
         given()
             .contentType("application/x-www-form-urlencoded; charset=utf-8")
-            .formParam("kmh", "1")
+            .formParam("milhas", "1")
         .when()
-            .post("/api/kmh2mih")
+            .post("/api/miles")
         .then()
             .statusCode(200)
-            .body(is("0.621"));
+            .body(is("0.621371"));
     }
 
      /**
@@ -43,7 +43,7 @@ public class StartTest {
     public void testNo2kmh() {
         given()
         .when()
-            .get("/api/no2kmh/1")
+            .get("/api/kilo/1")
         .then()
             .statusCode(200)
             .body(is("1.852"));
