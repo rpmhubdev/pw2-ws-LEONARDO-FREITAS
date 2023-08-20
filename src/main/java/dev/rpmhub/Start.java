@@ -12,12 +12,19 @@ import jakarta.ws.rs.core.MediaType;
 @Path("/api")
 public class Start {
 
+    @GET
+    @Path("/hello")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        return "Hello from RESTEasy";
+    }
+
     @POST
     @Path("/miles")
     @Consumes("application/x-www-form-urlencoded; charset = UTF-8")
     @Produces(MediaType.TEXT_PLAIN)
     public String miles(@FormParam("milhas") double milhas) {
-        double multiplicador = 0.62137;
+        double multiplicador = 0.621371;
         double conversor = (milhas*multiplicador);
         return String.valueOf(conversor);
     }
